@@ -1,0 +1,138 @@
+<html>
+    <head>
+		<title>map4</title>
+		<style>
+			body {
+				margin: 0;
+			}
+		</style>
+		<style>		
+			#map {
+				height: 100%;
+			}
+		</style>		
+
+    </head>
+    <body>
+        <div id="map"></div>
+        <script type="text/javascript">
+			function createMap(){
+				var opts = {
+					center: {
+						lat: 40.845891,
+						lng: -74.273046,
+					},
+					zoom: 11,
+					styles: [
+  {
+    "featureType": "water",
+    "stylers": [
+      { "color": "#0e171d" }
+    ]
+  },{
+    "featureType": "landscape",
+    "stylers": [
+      { "color": "#1e303d" }
+    ]
+  },{
+    "featureType": "road",
+    "stylers": [
+      { "color": "#1e303d" }
+    ]
+  },{
+    "featureType": "poi.park",
+    "stylers": [
+      { "color": "#1e303d" }
+    ]
+  },{
+    "featureType": "transit",
+    "stylers": [
+      { "color": "#182731" },
+      { "visibility": "simplified" }
+    ]
+  },{
+    "featureType": "poi",
+    "elementType": "labels.icon",
+    "stylers": [
+      { "color": "#f0c514" },
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "poi",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      { "color": "#1e303d" },
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "transit",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      { "color": "#e77e24" },
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "road",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      { "color": "#94a5a6" }
+    ]
+  },{
+    "featureType": "administrative",
+    "elementType": "labels",
+    "stylers": [
+      { "visibility": "simplified" },
+      { "color": "#e84c3c" }
+    ]
+  },{
+    "featureType": "poi",
+    "stylers": [
+      { "color": "#e84c3c" },
+      { "visibility": "off" }
+    ]
+  }
+],
+					maxZoom: 20,
+					minZoom: 0,
+					mapTypeId: 'roadmap',
+				};
+
+
+					opts.clickableIcons = true;
+                    opts.disableDoubleClickZoom = false;
+                    opts.draggable = true;
+                    opts.keyboardShortcuts = true;
+                    opts.scrollwheel = true;
+				
+
+				var map = new google.maps.Map(document.getElementById('map'), opts);
+
+
+				(function(){
+					var markerOptions = {
+						map: map,
+						position: {
+							lat: 40.807053,
+							lng: -74.308767,
+						}
+					};
+
+					markerOptions.icon = {
+						path: 'M18 2c1.1 0 2 0.9 2 2l0 13c0 1.1-0.9 2-2 2l-4 0 -3 3 -3-3 -4 0c-1.1 0-2-0.9-2-2l0-13c0-1.1 0.9-2 2-2l14 0Zm-7 10.9l2.8 1.7 -0.7-3.2 2.5-2.1 -3.2-0.3 -1.3-3 -1.3 3 -3.2 0.3 2.5 2.1 -0.7 3.2 2.8-1.7Z',
+						scale: 2.7272727272727272727272727273,
+						anchor: new google.maps.Point(11, 22),
+						fillOpacity: 1,
+						fillColor: '#f44336',
+						strokeOpacity: 0
+					};
+										var marker = new google.maps.Marker(markerOptions);
+
+
+				})();
+				
+			}
+        </script>
+		<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5jISZqj-zdvFPxLYqvrsouKcF4XDHWdI&v=3.31&language=en&libraries=places,geometry&callback=createMap"></script>
+    </body>
+</html>
+

@@ -1,0 +1,70 @@
+<html>
+    <head>
+		<title>Custom map</title>
+		<style>
+			body {
+				margin: 0;
+			}
+		</style>
+		<style>		
+			#map {
+				height: 100%;
+			}
+		</style>		
+
+    </head>
+    <body>
+        <div id="map"></div>
+        <script type="text/javascript">
+			function createMap(){
+				var opts = {
+					center: {
+						lat: 40.78457,
+						lng: -74.166616,
+					},
+					zoom: 11,
+					styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}],
+					maxZoom: 20,
+					minZoom: 0,
+					mapTypeId: 'roadmap',
+				};
+
+
+					opts.clickableIcons = true;
+                    opts.disableDoubleClickZoom = false;
+                    opts.draggable = true;
+                    opts.keyboardShortcuts = true;
+                    opts.scrollwheel = true;
+				
+
+				var map = new google.maps.Map(document.getElementById('map'), opts);
+
+
+				(function(){
+					var markerOptions = {
+						map: map,
+						position: {
+							lat: 40.779502,
+							lng: -74.165944,
+						}
+					};
+
+					markerOptions.icon = {
+						path: 'M11 2c-3.9 0-7 3.1-7 7 0 5.3 7 13 7 13 0 0 7-7.7 7-13 0-3.9-3.1-7-7-7Zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5 0-1.4 1.1-2.5 2.5-2.5 1.4 0 2.5 1.1 2.5 2.5 0 1.4-1.1 2.5-2.5 2.5Z',
+						scale: 2.7272727272727272727272727273,
+						anchor: new google.maps.Point(11, 22),
+						fillOpacity: 1,
+						fillColor: '#f44336',
+						strokeOpacity: 0
+					};
+										var marker = new google.maps.Marker(markerOptions);
+
+
+				})();
+				
+			}
+        </script>
+		<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkr1KCFz8UwpX_S9acRUyV6ZAGKsR79N4&v=3.31&language=en&libraries=places,geometry&callback=createMap"></script>
+    </body>
+</html>
+
